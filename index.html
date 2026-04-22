@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<title>Portfolio Jutamas</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #fff7fb, #ffe4ec);
+
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #ff6fa5 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #ffc0cb 0%, transparent 70%);
+  bottom: -100px;
+  left: -100px;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.hero,
+.about,
+.portfolio,
+.contact {
+  backdrop-filter: blur(10px);
+}
+
+/* ===== Navbar ===== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 25px;
+  background: #fff7fb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.menu {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+}
+
+.btn-work {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  border-radius: 30px;
+  background: #ffe4ec;
+  border: 1px solid #ff6fa5;
+  color: #ff6fa5;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-work:hover {
+  background: #ff6fa5;
+  color: white;
+}
+
+.menu-btn {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ===== Hero ===== */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  padding: 40px 15px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* ===== Left Card ===== */
+.card {
+  flex: 2;
+  background: #fff;
+  border-radius: 25px;
+  padding: 35px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card h1 {
+  font-size: 56px;
+  margin: 0;
+  font-weight: 800;
+}
+
+.card span {
+  color: #ff6fa5;
+}
+
+.card p {
+  color: #555;
+  line-height: 1.7;
+  margin-top: 10px;
+}
+
+/* ===== Right Profile ===== */
+.profile {
+  flex: 1;
+  background: #fff;
+  border-radius: 25px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tag {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+}
+
+.tag b {
+  margin-left: auto;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 20px 15px;
+  }
+
+  .card {
+    padding: 25px;
+  }
+
+  .card h1 {
+    font-size: 40px;
+  }
+}
+
+/* ===== ABOUT ===== */
+.about-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.about-header span {
+  font-size: 13px;
+  color: #888;
+}
+
+.about {
+  padding: 40px 15px;
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.about h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Grid */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Card */
+.about-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Title */
+.about-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.about-title span {
+  background: #ffe4ec;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* Biography */
+.bio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.bio-item {
+  background: #fafafa;
+  padding: 12px;
+  border-radius: 15px;
+}
+
+.bio-item small {
+  color: #888;
+  font-size: 12px;
+}
+
+.bio-item p {
+  margin: 5px 0 0;
+  font-weight: 500;
+}
+
+/* Education */
+.edu-box {
+  background: #fafafa;
+  padding: 12px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.edu-box small {
+  color: #999;
+  font-size: 12px;
+}
+
+.edu-box p {
+  margin-top: 5px;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* portfolio  */
+.portfolio {
+  padding: 30px 15px;
+}
+
+.portfolio-container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.portfolio h2 {
+  margin-bottom: 30px;
+}
+
+/* Grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* Card */
+.project-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.project-card h3 {
+  margin-top: 0;
+}
+
+.project-card p {
+  color: #555;
+}
+
+/* Tag */
+.tags {
+  margin: 15px 0;
+}
+
+.tags span {
+  background: #ffe4ec;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+/* Button */
+.project-card button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 20px;
+  background: #ff6fa5;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  background: linear-gradient(135deg, #e89ab5, #ff6fa5);
+  box-shadow: 0 5px 15px rgba(255, 111, 165, 0.2);
+}
+
+.project-card button:hover {
+  background: #ff4f8b;
+}
+
+.project-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.project-card {
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* popup project */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  backdrop-filter: blur(8px);   /* 🔥 เบลอพื้นหลัง */
+  background: rgba(0,0,0,0.3);
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 900px;   /* 🔥 ใหญ่ขึ้น */
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 25px;
+  padding: 30px;
+  position: relative;
+}
+
+.modal-img {
+  width: 100%;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.modal-desc {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.modal-section {
+  margin-bottom: 20px;
+}
+
+.modal-section h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.modal-section p {
+  color: #444;
+  line-height: 1.6;
+}
+
+.modal-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-gallery img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal-gallery img:hover {
+  transform: scale(1.03);
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.figma-btn {
+  background: white;
+  border: 1px solid #ff6fa5;
+  color: #ff6fa5;
+}
+
+.figma-btn:hover {
+  background: #ff6fa5;
+  color: white;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.3);
+
+  overflow-y: auto; /* ✅ ให้ modal เลื่อนเอง */
+}
+
+/* 🔥 ล็อคพื้นหลัง */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* 🔥 modal กลางจอ */
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🔥 กล่อง */
+.modal-content {
+  background: #fff;
+  width: 70%;
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+}
+
+/* 🔥 title */
+#modal-title {
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+/* 🔥 highlight ชมพู */
+.highlight {
+  color: #ff6fa5;
+  font-weight: 600;
+}
+
+/* 🔥 section title */
+.modal-section h3 {
+  margin-top: 25px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #ff6fa5;
+  letter-spacing: 1px;
+}
+
+/* 🔥 text */
+.modal-section p {
+  margin-top: 5px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* 🔥 tag tools */
+.tag {
+  display: inline-block;
+  background: #ffffff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-right: 8px;
+  font-size: 13px;
+}
+
+/* 🔥 ปุ่มปิด */
+.close {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* ===== THEME DASHBOARD (ชมพู) ===== */
+.theme-dashboard .highlight {
+  color: #ff6fa5;
+}
+
+.theme-dashboard .modal-section h3 {
+  color: #ff6fa5;
+}
+
+.theme-dashboard .tag {
+  background: #ffe4ec;
+  color: #ff6fa5;
+}
+
+
+/* ===== THEME SENIOR (แดง) ===== */
+.theme-senior .highlight {
+  color: #d90429;
+}
+
+.theme-senior .modal-section h3 {
+  color: #d90429;
+}
+
+.theme-senior .tag {
+  background: #ffe5e8;
+  color: #d90429;
+}
+
+.icon {
+  width: 45px;
+  height: 45px;
+  background: #eeeaf6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.icon i {
+  font-size: 16px;
+  color: #6c6c8c;
+}
+
+.contact {
+  padding: 40px 15px;
+}
+
+.contact-container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.contact-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  background: #fff3f7;
+}
+
+.contact-card p {
+  margin: 10px 0 5px;
+  font-size: 13px;
+  color: #888;
+}
+
+.contact-card span {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- ===== Navbar ===== -->
+<nav>
+  <div class="logo">PORTFOLIO JUTAMAS RUENROM</div>
+
+<div class="menu" id="menu">
+  <a href="#about">About</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#contact">Contact</a>
+  <a href="#" class="btn-work">Let’s work</a>
+</div>
+
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+
+  <!-- Left -->
+  <div class="card">
+    <h1>PORT<span>FOLIO</span></h1>
+
+    <p><b>UX/UI Designer – Co-op Student</b></p>
+
+    <p>
+      นางสาว จุฑามาศ รื่นรมณ์<br>
+      นักศึกษาชั้นปีที่ 3 - วิทยาการคอมพิวเตอร์<br>
+      มหาวิทยาลัยเกษตรศาสตร์ เฉลิมพระเกียรติ สกลนคร (KUSE)<br>
+      คณะวิทยาศาสตร์และวิศวกรรมศาสตร์<br>
+      หลักสูตรสาขาวิชาวิทยาการคอมพิวเตอร์<br><br>
+
+      สนใจงาน UX/UI และ Frontend Development  
+      มีประสบการณ์พัฒนาเว็บไซต์ด้วย HTML, CSS, JavaScript  
+      และใช้ Generative AI เป็นผู้ช่วยในการพัฒนาและแก้ไขโค้ด
+    </p>
+  </div>
+
+  <!-- Right -->
+  <div class="profile">
+    <img src="images/Me.jpg">
+
+    <div class="tag">
+      <span>CURRENT FOCUS</span>
+      <b>UX/UI</b>
+    </div>
+
+    <div class="tag">
+      <span>AVAILABLE FOR INTERNSHIP</span>
+      <b>พฤศจิกายน – มีนาคม 2570</b>
+    </div>
+  </div>
+</section>
+
+<!--------------------------------------------------------------------------------->
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="about-container">
+
+    <div class="about-header">
+      <h2>ABOUT ME</h2>
+      <span>ข้อมูลส่วนตัวและการศึกษา</span>
+    </div>
+
+    <div class="about-grid">
+
+      <!-- Left -->
+      <div class="about-card">
+        <div class="about-title">
+          <h3>Biography</h3>
+          <span>Introduction</span>
+        </div>
+
+        <div class="bio-grid">
+          <div class="bio-item">
+            <small>ชื่อ - นามสกุล</small>
+            <p>นางสาว จุฑามาศ รื่นรมณ์</p>
+          </div>
+
+          <div class="bio-item">
+            <small>ชื่อเล่น</small>
+            <p>ใบมิ้นท์</p>
+          </div>
+
+          <div class="bio-item">
+            <small>อายุ</small>
+            <p>21 ปี</p>
+          </div>
+
+          <div class="bio-item">
+            <small>วันเกิด</small>
+            <p>15 มีนาคม 2548</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="about-card">
+        <div class="about-title">
+          <h3>ประวัติการศึกษา</h3>
+          <span>Education</span>
+        </div>
+
+        <div class="edu-box">
+          <small>2566 - ปัจจุบัน</small>
+          <p>
+            ระดับปริญญาตรี (ชั้นปีที่ 3)<br>
+            มหาวิทยาลัยเกษตรศาสตร์ เฉลิมพระเกียรติ สกลนคร<br>
+            สาขาวิชาวิทยาการคอมพิวเตอร์
+          </p>
+        </div>
+
+        <div class="edu-box">
+          <small>2563 - 2565</small>
+          <p>
+            ระดับ มัธยมศึกษาตอนปลาย<br>
+            นวมินทราชินูทิศ หอวัง นนทบุรี<br>
+            แผนการเรียนอักษรศาสตร์-อังกฤษ
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!--------------------------------------------------------------------------------->
+<!-- ===== portfolio ===== -->
+<section class="portfolio" id="portfolio">
+
+  <div class="portfolio-container">
+    <div class="about-header">
+      <h2>PROJECTS</h2>
+      <span>ผลงาน/บทบาทเด่นจากโปรเจกต์และการเรียน</span>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <!-- Project 1 -->
+      <div class="project-card" onclick="openModal('dashboard')">
+
+        <img src="images/project1.jpg" class="project-img">
+
+        <h3>Health Facilities Dashboard Thailand 2020</h3>
+        <p>
+          Dashboard แสดงข้อมูลสถานพยาบาลในประเทศไทย 
+          เพื่อวิเคราะห์และนำเสนอข้อมูลเชิงภาพ
+        </p>
+
+        <div class="tags">
+          <span>Dashboard</span>
+          <span>Data Visualization</span>
+        </div>
+
+        <button onclick="openModal('dashboard')">View Detail</button>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card" onclick="openModal('senior')">
+
+        <img src="images/project2.jpg" class="project-img">
+
+        <h3>Senior Project (In Progress)</h3>
+        <p>
+          โปรเจคจบที่กำลังพัฒนา เน้น UX/UI และระบบเว็บ 
+          อยู่ในขั้นตอนออกแบบและพัฒนา
+        </p>
+
+        <div class="tags">
+          <span>UX/UI</span>
+          <span>Web Development</span>
+        </div>
+
+        <button onclick="openModal('senior')">View Detail</button>
+
+        <a href="https://www.figma.com/design/9TPVg8kFsiS1Mf0lwfYGQN/%E0%B8%AD%E0%B8%AD%E0%B8%81%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%80%E0%B8%88%E0%B8%84%E0%B8%88%E0%B8%9A?node-id=0-1&t=iHJ1lRmOD6fP875a-1" target="_blank">
+          <button class="figma-btn">Open in Figma</button>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!--------------------------------------------------------------------------------->
+<!-- ===== contact ===== -->
+<section class="contact" id="contact">
+  <div class="contact-container">
+
+    <div class="about-header">
+      <h2>CONTACT</h2>
+      <span>ช่องทางติดต่อและลิงก์โปรไฟล์</span>
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-card" onclick="window.location.href='tel:0967490032'">
+        <div class="icon"><i class="fas fa-phone"></i></div>
+        <p>PHONE</p>
+        <span>092-828-3376</span>
+      </div>
+
+      <div class="contact-card" onclick="window.location.href='mailto:jutamasruenrom.2005@gmail.com'">
+        <div class="icon"><i class="fas fa-envelope"></i></div>
+        <p>EMAIL</p>
+        <span>jutamasruenrom.2005@gmail.com</span>
+      </div>
+
+      <div class="contact-card" onclick="window.open('https://github.com/jutamasruenrom2005')">
+        <div class="icon"><i class="fab fa-github"></i></div>
+        <p>GITHUB</p>
+      </div>
+
+      <div class="contact-card" onclick="window.open('https://www.facebook.com/share/1GFQR26BsF/?mibextid=wwXIfr')">
+        <div class="icon"><i class="fab fa-facebook-f"></i></div>
+        <p>FACEBOOK</p>
+      </div>
+
+      <div class="contact-card" onclick="window.open('https://www.instagram.com/bxiimxnt?igsh=djNjM2tuNHF5aW1n&utm_source=qr')">
+        <div class="icon"><i class="fab fa-instagram"></i></div>
+        <p>INSTAGRAM</p>
+      </div>
+
+      <div class="contact-card" onclick="window.open('https://line.me/ti/p/4IoVZstkjy')">
+        <div class="icon"><i class="fab fa-line"></i></div>
+        <p>LINE</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- JS -->
+<script>
+function toggleMenu() {
+  document.getElementById("menu").classList.toggle("show");
+}
+</script>
+
+<!-- JS popup project -->
+<script>
+function openModal(project) {
+  document.body.classList.add("modal-open");
+
+  const modal = document.getElementById("modal");
+
+  // 🔥 reset theme ก่อนทุกครั้ง
+  modal.classList.remove("theme-dashboard", "theme-senior");
+
+  /* ================= DASHBOARD ================= */
+  if (project === "dashboard") {
+
+    modal.classList.add("theme-dashboard");
+
+    document.getElementById("modal-title").innerText =
+      "Health Facilities Dashboard Thailand 2020";
+
+    document.getElementById("modal-overview").innerHTML = `
+      <span class="highlight">🚀 Project :</span> 
+      <strong>Health Facilities Dashboard Thailand 2020</strong><br><br>
+
+      โปรเจกต์นี้พัฒนาขึ้นในช่วง 
+      <strong>ชั้นปีที่ 2</strong> ที่ 
+      <span class="highlight">มหาวิทยาลัยเกษตรศาสตร์ เฉลิมพระเกียรติ สกลนคร (KUSE)</span><br>
+
+      โดยเป็นส่วนหนึ่งของรายวิชา 
+      <strong>Data Visualization</strong><br><br>
+
+      ออกแบบ Dashboard เพื่อช่วยให้ผู้ใช้สามารถ 
+      <span class="highlight">เข้าใจข้อมูลจำนวนมากได้อย่างรวดเร็ว</span> 
+      ผ่านการนำเสนอในรูปแบบ 
+      <strong>แผนที่ (Map)</strong> และ 
+      <strong>กราฟ (Chart)</strong><br><br>
+
+      ซึ่งช่วยเปลี่ยนข้อมูลที่ซับซ้อนให้กลายเป็น 
+      <span class="highlight">ข้อมูลที่อ่านง่ายและใช้งานได้จริง</span>
+    `;
+
+    document.getElementById("modal-problem").innerHTML = `
+      ข้อมูลสถานพยาบาลมีจำนวนมากและซับซ้อน  
+      ทำให้ผู้ใช้งาน 
+      <span class="highlight">เข้าใจข้อมูลได้ยาก</span> 
+      และ 
+      <span class="highlight">เข้าถึงข้อมูลสำคัญได้ไม่สะดวก</span>
+    `;
+
+    document.getElementById("modal-solution").innerHTML = `
+      ออกแบบ Dashboard โดยใช้ 
+      <strong>Data Visualization</strong> เช่น แผนที่และกราฟ  
+      เพื่อให้เห็นภาพรวมของข้อมูลได้ชัดเจน<br><br>
+
+      พร้อมเพิ่ม 
+      <span class="highlight">ฟังก์ชันค้นหา (Search)</span> และ 
+      <span class="highlight">ตัวกรองข้อมูล (Filter)</span> 
+      เพื่อช่วยให้ผู้ใช้เข้าถึงข้อมูลที่ต้องการได้ง่ายขึ้น
+    `;
+
+    document.getElementById("modal-role").innerHTML = `
+      • ออกแบบโครงสร้างและ UX/UI ของ Dashboard<br>
+      • พัฒนาเว็บไซต์ด้วย HTML, CSS และ JavaScript<br>
+      • สร้างการแสดงผลข้อมูล เช่น Map และ Chart<br>
+      • ใช้ Generative AI เป็นเครื่องมือช่วยพัฒนาและแก้ไขโค้ด
+    `;
+
+    document.getElementById("modal-result").innerHTML = `
+      ช่วยให้ผู้ใช้สามารถ 
+      <span class="highlight">เข้าใจข้อมูลจำนวนมากได้ง่ายขึ้น</span>  
+      และสามารถ 
+      <span class="highlight">ค้นหาและวิเคราะห์ข้อมูลได้รวดเร็วขึ้น</span><br><br>
+
+      ทำให้ข้อมูลที่ซับซ้อนกลายเป็น 
+      <strong>ข้อมูลที่ใช้งานได้จริง</strong>
+    `;
+
+    document.getElementById("modal-tools").innerHTML = `
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">JavaScript</span>
+    `;
+
+    // 🔥 รูปหลัก
+    document.getElementById("modal-img").src = "images/project1.jpg";
+
+    // 🔥 gallery (เปลี่ยนให้เป็น senior)
+    document.querySelector(".modal-gallery").innerHTML = `
+      <img src="images/dashboard01.jpg">
+      <img src="images/dashboard02.jpg">
+      <img src="images/dashboard03.jpg">
+      <img src="images/dashboard04.jpg">
+    `;
+
+  }
+
+  /* ================= SENIOR ================= */
+  else if (project === "senior") {
+
+    modal.classList.add("theme-senior");
+
+    document.getElementById("modal-title").innerText =
+      "Senior Project : KUSE Activity System";
+
+    document.getElementById("modal-overview").innerHTML = `
+    <span class="highlight">🚀 Project :</span> 
+    <strong>KUSE Activity & News Web Application</strong><br><br>
+
+    โปรเจกต์นี้เป็น <strong>โปรเจกต์จบ</strong> ที่พัฒนาในช่วง 
+    <strong>ชั้นปีที่ 3</strong> ที่ 
+    <span class="highlight">มหาวิทยาลัยเกษตรศาสตร์ เฉลิมพระเกียรติ สกลนคร (KUSE)</span><br><br>
+
+    ออกแบบและพัฒนา 
+    <strong>Web Application</strong> สำหรับเป็น 
+    <span class="highlight">ศูนย์กลางรวมข่าวสารและกิจกรรม</span> 
+    ของคณะ เพื่อให้ผู้ใช้งานสามารถเข้าถึงข้อมูลได้ในที่เดียว
+    `;
+
+    document.getElementById("modal-problem").innerHTML = `
+    ข้อมูลข่าวสารและกิจกรรมของคณะ 
+    <span class="highlight">กระจัดกระจายหลายแพลตฟอร์ม</span> เช่น Facebook / Website  
+
+    ทำให้ผู้ใช้งาน  
+    • ค้นหาข้อมูลย้อนหลังได้ยาก  
+    • เข้าถึงข้อมูลไม่สะดวก  
+    • ไม่มีระบบจัดหมวดหมู่ที่ชัดเจน
+    `;
+
+    document.getElementById("modal-solution").innerHTML = `
+    พัฒนา Web Application ให้เป็น 
+    <strong>ระบบกลาง (Centralized System)</strong><br><br>
+
+    • รวมข่าวสารและกิจกรรมไว้ในที่เดียว  
+    • มีระบบ <span class="highlight">ค้นหา (Search)</span> และ 
+      <span class="highlight">ตัวกรอง (Filter)</span>  
+    • แสดงข้อมูลแบบ <strong>แบ่งหน้า (Pagination)</strong>  
+    • มีหน้าแสดงรายละเอียดกิจกรรมพร้อมรูปภาพ  
+    `;
+
+    document.getElementById("modal-role").innerHTML = `
+    • ออกแบบ UX/UI ทั้งระบบใน Figma<br>
+    • วิเคราะห์ User Flow และโครงสร้างระบบ<br>
+    • พัฒนา Frontend (HTML, CSS, JavaScript)<br>
+    • ออกแบบโครงสร้างข้อมูลและระบบจัดการกิจกรรม
+    `;
+
+    document.getElementById("modal-result").innerHTML = `
+    ระบบช่วยให้ผู้ใช้งานสามารถ  
+    <span class="highlight">ค้นหาและเข้าถึงข้อมูลได้ง่ายขึ้น</span><br><br>
+
+    • ลดความกระจัดกระจายของข้อมูล  
+    • เพิ่มประสิทธิภาพในการประชาสัมพันธ์  
+    • รองรับการดูข้อมูลย้อนหลังได้อย่างเป็นระบบ
+    `;
+
+    document.getElementById("modal-tools").innerHTML = `
+      <span class="tag">Figma</span>
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <span class="tag">JavaScript</span>
+      <span class="tag">MySQL</span>
+      <span class="tag">PHP</span>
+    `;
+
+    // 🔥 รูปหลัก
+    document.getElementById("modal-img").src = "images/project2.jpg";
+
+    // 🔥 gallery (เปลี่ยนให้เป็น senior)
+    document.querySelector(".modal-gallery").innerHTML = `
+      <img src="images/senior01.png">
+      <img src="images/senior02.png">
+      <img src="images/senior03.png">
+      <img src="images/senior04.png">
+    `;
+  }
+
+  modal.style.display = "flex";
+}
+
+
+function closeModal() {
+  document.body.classList.remove("modal-open");
+  document.getElementById("modal").style.display = "none";
+}
+</script>
+
+<!-- popup project -->
+<div id="modal">
+  <div class="modal-content">
+
+    <span class="close" onclick="closeModal()">✕</span>
+
+    <h2 id="modal-title"></h2>
+    <p id="modal-overview"></p>
+
+    <div class="modal-section">
+      <h3>Problem</h3>
+      <p id="modal-problem"></p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Solution</h3>
+      <p id="modal-solution"></p>
+    </div>
+
+    <div class="modal-section">
+      <h3>My Role</h3>
+      <p id="modal-role"></p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Result</h3>
+      <p id="modal-result"></p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Tools</h3>
+      <p id="modal-tools"></p>
+    </div>
+
+    <!-- 🔥 รูปไว้ล่างสุด -->
+    <img id="modal-img" class="modal-img">
+    <div class="modal-gallery">
+
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>
